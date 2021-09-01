@@ -10,74 +10,41 @@ const Modal = {
     }
 }
 
-const Transactions = [{
-    id: 1,
-    description: 'Luz',
-    amount: -50000,
-    date: '23/01/2021',
-}, {
-    id: 2,
-    description: 'aluguel',
-    amount: -500000,
-    date: '23/01/2021',
-}, {
-    id: 3,
-    description: 'internet',
-    amount: -500000,
-    date: '23/01/2021',
+const transactions = [{
+    id:1,
+    description:'Luz',
+    amount:-50000,
+    date:'23/01/2021', 
+},{
+     id:2,
+    description:'Aluguel',
+    amount:-50000 ,
+},{
+     id:3,
+    description:'Internet',
+    amount:-50000, 
 }]
 
-const Transaction = {
-    incomes() {
-
+const DOM={
+    transactionsContainer: document.querySelector('#data-table tbody'),
+    addTransaction(transaction, index){
+    const tr = document.createElement ("tr")
+    tr.innerHTML=DOM.innerHTMLTransaction()
+    console.log(tr.innerHTML)
+     
+    DOM.transactionsContainer.appendChild(tr)
     },
-    expenses() {
-
-    },
-    total() {
-
-    }
+    innerHTMLTransaction(transaction){
+       
+        const html = `
+         <td class="description">$(transaction.descripiton)</td>
+         <td class="income">$(transaction.amount)</td>
+         <td class="date">$(transaction.date)</td>
+                                   <td>
+         <img src="./disc-img/bloq.svg" alt="imagem de menos"> </td>
+        `
+    return html}
 }
-// subistituir os dados do html pelos dados do JS
-
-const DOM = {
-
-    transactionContainer:document.querySelector(#data-table,thbody),
-
-
-    addTransaction(transaction, index) {
-        console.log(transaction)
-        const tr = document.createElement('tr')
-        tr.innnerHTML = DOM.innerTransaction()
-    },
-    innerHTMLTrasaction() {
-        const html = ` 
-                  <td class="description"> ${transaction.description}</td>                                                                   
-                  <td class="expense">${transaction.amount}</td>
-                  <td class="date">${transaction.date}</td>
-                  <td>
-                 <img src="./disc-img/bloq.svg" alt="imagem de menos">
-                                          </td>
-       `
-
-
-        return html
-    }
-}
-
-
-DOM.addTransaction(Transactions[1])
-//*DOM.addTransaction(Transactions[1])
-//*DOM.addTransaction(Transactions[2])
-
-transaction.array.forEach()
-for(let i=0; i<3; i++){
-    console(i)
-}
-
-
-
-
-
-
-
+transactions.forEach(function(transaction){
+    DOM.addTransaction(transactions[0])
+})
